@@ -104,6 +104,7 @@ Typography
     --base-s: 87%;
     --base-l: 54.9%;
 
+
     --white: var(--white-h) var(--white-s) var(--white-l);
     --white-h: 0;
     --white-s: 0%;
@@ -560,7 +561,7 @@ h3 {
 h4 {
     font-size: 24px;
     margin-bottom: 5px;
-    font-weight: 700;
+    font-weight: 600;
     // text-transform: capitalize;
 }
 
@@ -1223,8 +1224,7 @@ Reusable style section start
     flex-direction: column;
     text-align: center;
     gap: 25px;
-    height: 100%;
-    margin: 0 0 0 80px;
+    margin: 20px 0 0 80px;
     background-color: hsl(var(--white));
     border: 1px solid var(--border-color1);
     transition: var(--transition);
@@ -1268,6 +1268,25 @@ Reusable style section start
 }
 
 // Responsive cmn box start
+@media(min-width: 768px) {
+    .cmn-box {
+        height: 100%;
+    }
+}
+
+@media(max-width: 767px) {
+    .cmn-box {
+        margin: 60px 0 0 0;
+
+    }
+
+    .text-stroke {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -70px;
+    }
+}
+
 @media(max-width: 575px) {
     .cmn-box {
         padding: 20px;
@@ -1655,6 +1674,10 @@ Reusable style section start
 
 // Responsive multiple search box start
 @media(max-width: 767px) {
+    .multiple-search-box {
+        border-radius: 15px;
+    }
+
     .multiple-search-box-inner {
         background-color: transparent;
         flex-direction: column;
@@ -1682,8 +1705,6 @@ Reusable style section start
 
 @media (max-width: 575px) {
     .multiple-search-box {
-        padding: 25px;
-
         .nav {
             margin-bottom: 20px;
             position: static;
@@ -1935,12 +1956,12 @@ Offcanvas end
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    background: var(--primary-color);
+    // background: var(--primary-color);
     color: hsl(var(--white));
     transition: var(--transition);
     text-transform: capitalize;
     font-family: var(--heading-font);
-    border: 1px solid var(--primary-color);
+    // border: 1px solid var(--primary-color);
     gap: 5px;
 
     &:hover {
@@ -1958,6 +1979,7 @@ Offcanvas end
         display: flex;
         align-items: center;
         justify-content: center;
+        background: var(--primary-color);
     }
 
 }
@@ -4236,18 +4258,9 @@ Padding bottom
 ----------------------------------------------*/
 .navbar.active {
     background-color: hsl(var(--white));
+    background-color: var(--black);
     box-shadow: var(--shadow1);
     z-index: 999;
-
-    .navbar-nav {
-        .nav-link {
-            color: var(--heading-color);
-        }
-    }
-
-    .notification-panel .dropdown-toggle i {
-        color: var(--heading-color);
-    }
 }
 
 .navbar {
@@ -4301,7 +4314,7 @@ Padding bottom
                 content: "";
                 height: 2px;
                 width: 0;
-                background-color: var(--primary-color);
+                background-color: hsl(var(--white));
                 bottom: 10px;
                 left: 50%;
                 transform: translateX(-50%);
@@ -4310,7 +4323,7 @@ Padding bottom
 
             &:hover,
             &.active {
-                color: var(--primary-color);
+                color: hsl(var(--white));
 
                 &::after {
                     width: 70%;
@@ -4320,7 +4333,8 @@ Padding bottom
 
             i {
                 margin-right: 5px;
-                color: var(--primary-color);
+                color: hsl(var(--white));
+                ;
             }
         }
     }
@@ -4397,7 +4411,7 @@ Padding bottom
             right: 60px;
 
             .custom-nav {
-                gap: 5px;
+                gap: 8px;
             }
         }
     }
@@ -4584,7 +4598,7 @@ Bottom Mobile, Tab nav end
 
 @media (max-width: 991px) {
     .hero-section {
-        padding: 120px 0;
+        padding: 150px 0 100px;
 
         .thumbs-area {
             margin-left: 0;
@@ -4717,7 +4731,10 @@ Category section start
         color: var(--heading-color);
 
         &.active {
-            color: var(--primary-color);
+            .item {
+                background-color: var(--primary-color);
+                color: hsl(var(--white));
+            }
         }
 
         .item {
@@ -5981,6 +5998,9 @@ Newsletter section end
 }
 
 .footer-widget {
+    .widget-logo {
+        margin-bottom: 10px;
+    }
 
     ul {
         li {
@@ -6131,24 +6151,27 @@ Copyright end
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: linear-gradient(180deg, rgba(255, 255, 255), rgba(255, 255, 255, 0.7));
-
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
         z-index: -1;
     }
 
-    h3 {
-        font-size: 40px;
-        margin-bottom: 10px;
+    .breadcrumb .breadcrumb-item+.breadcrumb-item::before {
+        color: hsl(var(--white));
     }
+
 }
 
 .breadcrumb-area {
     font-size: 18px;
     font-weight: 500;
     text-align: center;
+    color: hsl(var(--white));
 
     h3 {
         text-transform: capitalize;
+        font-size: 40px;
+        margin-bottom: 10px;
+        color: hsl(var(--white));
     }
 }
 
@@ -6841,7 +6864,6 @@ Error end
 ----------------------------------------------*/
 .products-section {
     background-color: var(--bg-color3);
-    padding-bottom: 50px;
 
     .accordion-item {
         border: none;

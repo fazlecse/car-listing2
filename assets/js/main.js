@@ -79,14 +79,14 @@ $(document).ready(function () {
                 0: {
                     items: 1,
                 },
-                450: {
+                350: {
                     items: 2,
                 },
                 576: {
-                    items: 2
+                    items: 3
                 },
                 992: {
-                    items: 3
+                    items: 4
                 },
                 1200: {
                     items: 6
