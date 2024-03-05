@@ -18,6 +18,7 @@ window.addEventListener('scroll', () => {
 });
 
 $(document).ready(function () {
+
     $(function (e) {
         "use strict";
         // Testimonial section start
@@ -250,7 +251,17 @@ function copyTextFunc() {
 }
 // Copy text end
 
-
+$('#shareBlock').cShare({
+    showButtons: [
+        'fb',
+        'line',
+        'plurk',
+        'weibo',
+        '<a href="https://www.jqueryscript.net/tags.php?/twitter/">twitter</a>',
+        'tumblr',
+        'email'
+    ]
+});
 
 
 

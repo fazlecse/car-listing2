@@ -1486,6 +1486,7 @@ Reusable style section start
 
 // Responsive input box section end
 // Input box section end
+
 // Search box section start 
 .search-box {
     position: relative;
@@ -4175,7 +4176,7 @@ Padding top start
 }
 
 .pt-150 {
-    padding-top: 150px;
+    padding-top: 150px !important;
 }
 
 .pt-190 {
@@ -5937,7 +5938,7 @@ Newsletter section end
 .footer-section {
     position: relative;
     z-index: 0;
-    padding: 150px 0 50px;
+    padding: 100px 0 50px;
     background-color: var(--bg-color2);
     color: hsl(var(--white)/.8);
 
@@ -6302,12 +6303,9 @@ Map section end
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 50%;
         height: 100%;
         background-color: hsl(var(--base)/.05);
-        clip-path: polygon(100% 0, 0 0, 100% 100%);
-        clip-path: polygon(0 50%, 100% 0, 50% 100%, 50% 50%);
-
         z-index: -1;
     }
 
