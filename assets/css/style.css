@@ -1403,7 +1403,7 @@ Reusable style section start
 Offcanvas section start 
 ----------------------------------------------*/
 .offcanvas {
-  background: var(--bg-color1);
+  background: var(--black);
 }
 
 .offcanvas.offcanvas-end {
@@ -1823,7 +1823,7 @@ section {
 
 .section-title {
   max-width: 560px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .section-subtitle {
@@ -3536,11 +3536,12 @@ Padding bottom
   .navbar.active {
     padding: 10px 5px;
   }
-  .navbar .nav-right {
-    right: 60px;
+  .navbar .navbar-toggler {
+    display: none;
   }
-  .navbar .nav-right .custom-nav {
-    gap: 8px;
+  .navbar .nav-right {
+    position: absolute;
+    right: 12px;
   }
 }
 .rtl .navbar-nav.ms-auto {
@@ -3894,6 +3895,16 @@ Feature section end
 .about-section {
   position: relative;
 }
+.about-section .thumbs-area .about-image {
+  padding-right: 80px;
+  height: 600px;
+  position: relative;
+}
+.about-section .thumbs-area img {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+}
 .about-section .about-content .item-list-container {
   display: flex;
   flex-direction: column;
@@ -3915,22 +3926,33 @@ Feature section end
   border-radius: 5px;
   font-size: 18px;
 }
-.about-section .quarter-overlay {
+
+.experience {
   position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  background-color: var(--primary-color-opacity-low);
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  -webkit-clip-path: polygon(0 0, 25% 0, 55% 100%, 0% 100%);
-          clip-path: polygon(0 0, 25% 0, 55% 100%, 0% 100%);
+  right: 0;
+  bottom: 50px;
+  background-color: var(--black);
+  border-radius: 15px;
+  padding: 20px 40px;
+  display: inline-flex;
+  flex-direction: column;
+}
+.experience h3,
+.experience h4 {
+  color: hsl(var(--white));
 }
 
+@media (max-width: 1199px) {
+  .about-section .thumbs-area .about-image {
+    height: 500px;
+  }
+}
 @media (max-width: 767px) {
   .about-section {
     text-align: center;
+  }
+  .about-section .thumbs-area .about-image {
+    padding-right: 0;
   }
   .about-section .about-content .item-list-container .item {
     flex-direction: column;
@@ -3938,21 +3960,16 @@ Feature section end
   .about-section .about-content .item-list-container .item .icon-box {
     margin: auto;
   }
+  .experience {
+    right: 30px;
+    bottom: 30px;
+  }
 }
 @media (max-width: 575px) {
-  .about-section .about-image-area .heart-img {
-    left: 10%;
-    width: 80px;
-  }
-  .about-section .about-image-area .thumb-img {
-    width: 55px;
+  .about-section .thumbs-area .about-image {
+    height: 450px;
   }
 }
-.rtl .about-section .quarter-overlay {
-  -webkit-clip-path: polygon(75% 0%, 100% 0%, 100% 100%, 45% 100%);
-          clip-path: polygon(75% 0%, 100% 0%, 100% 100%, 45% 100%);
-}
-
 /*----------------------------------------------
 About section end
 ----------------------------------------------*/
@@ -4875,6 +4892,17 @@ Banner end
   z-index: 0;
 }
 
+.contact-area {
+  border: 1px solid var(--border-color1);
+  box-shadow: var(--shadow1);
+  border-radius: 5px;
+  padding: 20px;
+  height: 100%;
+}
+.contact-area .thumbs-area {
+  max-width: 300px;
+}
+
 .contact-item-list {
   margin-top: 30px;
   display: flex;
@@ -4916,10 +4944,6 @@ Banner end
 }
 .contact-message-area .form-label h5 {
   font-weight: 600;
-}
-
-.dark-theme .contact-section .contact-area .contact-item-list .item .icon-area {
-  background-color: var(--bg-color2);
 }
 
 /*----------------------------------------------
@@ -5078,6 +5102,34 @@ Login Signup end
   width: 20px;
   height: 2px;
   left: 0;
+}
+
+.social-share-box {
+  margin-top: 30px;
+}
+.social-share-box .title {
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+
+#shareBlock {
+  display: flex;
+  gap: 10px;
+}
+#shareBlock .btn-light {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  background-color: transparent;
+  border-color: var(--border-color1);
+  box-shadow: var(--shadow1);
+}
+#shareBlock .btn-light:hover {
+  box-shadow: var(--shadow2);
 }
 
 .sidebar-categories-area li {
@@ -5393,10 +5445,10 @@ Error end
 }
 .products-section .map-section {
   position: sticky;
-  top: 100px;
+  top: 80px;
 }
 .products-section .map-section iframe {
-  height: 600px;
+  height: calc(100vh - 80px);
   border: 1px solid var(--border-color1);
   border-radius: 5px;
 }
@@ -5407,6 +5459,8 @@ Error end
   box-shadow: var(--shadow1);
   border-radius: 5px;
   border: 1px solid var(--border-color1);
+  position: sticky;
+  top: 80px;
 }
 .sidebar .accordion-item {
   margin: 0;

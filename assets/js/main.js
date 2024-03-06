@@ -251,18 +251,13 @@ function copyTextFunc() {
 }
 // Copy text end
 
-$('#shareBlock').cShare({
-    showButtons: [
-        'fb',
-        'line',
-        'plurk',
-        'weibo',
-        '<a href="https://www.jqueryscript.net/tags.php?/twitter/">twitter</a>',
-        'tumblr',
-        'email'
-    ]
+// Social share start
+$("#shareBlock").socialSharingPlugin({
+    urlShare: window.location.href,
+    description: $("meta[name=description]").attr("content"),
+    title: $("title").text(),
 });
-
+// Social share end
 
 
 // International Telephone Input start
