@@ -260,17 +260,6 @@ $("#shareBlock").socialSharingPlugin({
 // Social share end
 
 
-// International Telephone Input start
-// const input = document.querySelector("#telephone");
-// window.intlTelInput(input, {
-//     initialCountry: "bd",
-//     separateDialCode: true,
-// });
-// International Telephone Input end
-
-
-
-
 
 
 // Nice select start
@@ -287,7 +276,13 @@ $(".js-range-slider").ionRangeSlider({
     grid: true
 });
 // Range area end
-
+// International Telephone Input start
+const input = document.querySelector("#telephone");
+window.intlTelInput(input, {
+    initialCountry: "bd",
+    separateDialCode: true,
+});
+// International Telephone Input end
 // Dark theme start
 const toggleBtn = document.getElementById("toggle-btn");
 const body = document.querySelector("body");

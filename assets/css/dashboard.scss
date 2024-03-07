@@ -48,20 +48,24 @@ Typography
     --transition: all .3s ease-in-out;
 
     --base: var(--base-h) var(--base-s) var(--base-l);
-    --base-h: 355.7;
-    --base-s: 100%;
-    --base-l: 49.4%;
+    --base-h: 229.5;
+    --base-s: 87%;
+    --base-l: 54.9%;
 
     --white: var(--white-h) var(--white-s) var(--white-l);
     --white-h: 0;
     --white-s: 0%;
     --white-l: 100%;
 
+    --vivid-red: var(--vivid-red-h) var(--vivid-red-s) var(--vivid-red-l);
+    --vivid-red-h: 355.4;
+    --vivid-red-s: 92.6%;
+    --vivid-red-l: 52.5%;
+
     --lime-green: var(--lime-green-h) var(--lime-green-s) var(--lime-green-l);
     --lime-green-h: 120;
     --lime-green-s: 9260.8%;
     --lime-green-l: 50%;
-
 
     --vivid-orange: var(--vivid-orange-h) var(--vivid-orange-s) var(--vivid-orange-l);
     --vivid-orange-h: 40.7;
@@ -73,8 +77,8 @@ Typography
     --light-blue-s: 100%;
     --light-blue-l: 61%;
 
-
-}
+    // primary-color: #284bf0
+} 
 
 /*----------------------------------------------
 Dark theme section start
@@ -206,28 +210,181 @@ preloader section start
     justify-content: center;
     align-items: center;
 
-    .preloader-image {
-        max-width: 200px;
-        animation: rotate 15s infinite linear;
+    .loader {
+        width: 11.7em;
+        height: 4.2em;
+        font-size: 16px;
+        color: var(--primary-color);
+        position: relative;
     }
 
-    @keyframes rotate {
+    .car {
+        position: absolute;
+        width: inherit;
+        height: 2em;
+        background-color: currentColor;
+        top: 1.5em;
+        border-radius: 0 5em 1em 0 / 0 4em 1em 0;
+    }
+
+    @keyframes run {
         0% {
-            transform: rotate(0deg);
+            transform: translate(0.2em, 0.1em) rotate(0deg);
         }
 
-        25% {
-            transform: rotate(45deg);
+        20% {
+            transform: translate(0.1em, 0.2em) rotate(1deg);
         }
 
-        75% {
-            transform: rotate(-45deg);
+        40% {
+            transform: translate(0.1em, -0.1em) rotate(-1deg);
+        }
+
+        60% {
+            transform: translate(-0.1em, 0.2em) rotate(0deg);
+        }
+
+        80% {
+            transform: translate(-0.1em, 0.1em) rotate(1deg);
         }
 
         100% {
-            transform: rotate(0deg);
+            transform: translate(0.2em, 0.1em) rotate(-1deg);
         }
     }
+
+    .car::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: -0.5em;
+        border: 0.6em solid transparent;
+        border-left-width: 0;
+        border-right-color: currentColor;
+        transform-origin: left;
+        transform: rotate(-45deg);
+    }
+
+    .body {
+        position: absolute;
+        width: 7.5em;
+        height: 3.5em;
+        box-sizing: border-box;
+        border: 0.4em solid;
+        border-radius: 3em 4.5em 0 0 / 3em 4em 0 0;
+        top: -1.5em;
+        left: 1.2em;
+    }
+
+    .body::before {
+        content: '';
+        position: absolute;
+        width: 3.5em;
+        height: inherit;
+        background-color: currentColor;
+        border-top-left-radius: inherit;
+        left: -0.4em;
+        top: -0.4em;
+    }
+
+    .wheels::before,
+    .wheels::after {
+        color: #e4eceb;
+        content: '';
+        position: absolute;
+        box-sizing: border-box;
+        width: 2.6em;
+        height: 2.6em;
+        background-color: #333;
+        border-radius: 50%;
+        bottom: -1em;
+        border: 0.3em solid #333;
+        background-image:
+            linear-gradient(135deg,
+                transparent 45%,
+                currentColor 46%, currentColor 54%,
+                transparent 55%),
+            linear-gradient(90deg,
+                transparent 45%,
+                currentColor 46%, currentColor 54%,
+                transparent 55%),
+            linear-gradient(45deg,
+                transparent 45%,
+                currentColor 46%, currentColor 54%,
+                transparent 55%),
+            linear-gradient(0deg,
+                transparent 45%,
+                currentColor 46%, currentColor 54%,
+                transparent 55%),
+            radial-gradient(currentColor 29%,
+                transparent 30%, transparent 50%,
+                currentColor 51%);
+        animation: rotating 0.5s linear infinite;
+    }
+
+    .wheels::before {
+        left: 1.2em;
+    }
+
+    .wheels::after {
+        right: 0.8em;
+    }
+
+    @keyframes rotating {
+        to {
+            transform: rotate(1turn);
+        }
+    }
+
+    .strikes {
+        position: absolute;
+        width: 1em;
+        height: inherit;
+        left: -1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .strikes span {
+        height: 0.1em;
+        background-color: rgb(34, 43, 43);
+        animation: drift 0.2s linear infinite;
+        animation-delay: calc(var(--n) * -0.05s);
+    }
+
+    @keyframes drift {
+        from {
+            transform: translate(3.5em);
+        }
+
+        to {
+            transform: translate(-8em);
+            filter: opacity(0);
+        }
+    }
+
+    .strikes span:nth-child(1) {
+        --n: 1;
+    }
+
+    .strikes span:nth-child(2) {
+        --n: 2;
+    }
+
+    .strikes span:nth-child(3) {
+        --n: 3;
+    }
+
+    .strikes span:nth-child(4) {
+        --n: 4;
+    }
+
+    .strikes span:nth-child(5) {
+        --n: 5;
+    }
+
 }
 
 /*----------------------------------------------
@@ -2656,6 +2813,9 @@ Chat section end
     margin-bottom: 20px;
     position: relative;
     overflow: hidden;
+    box-shadow: var(--shadow3);
+    border: var(--border-color1);
+    border-radius: 10px;
 
     .user-badge {
         position: absolute;
@@ -2678,7 +2838,6 @@ Chat section end
 }
 
 .user-data-box {
-    border: 1px solid var(--primary-color);
     padding: 15px;
     border-radius: 5px;
     text-align: center;
@@ -3024,6 +3183,17 @@ Padding bottom
 
 
 
+.vivid-red-card {
+    background-color: hsl(var(--vivid-red)/.1);
+
+    .box-card-title {
+        i {
+            color: hsl(var(--vivid-red));
+            box-shadow: hsl(var(--vivid-red)/0.2) 0px 12px 8px 2px;
+        }
+    }
+}
+
 .vivid-orange-card {
     background-color: hsl(var(--vivid-orange)/.1);
 
@@ -3367,6 +3537,13 @@ Header section start
 @media(max-width: 575px) {
     .header-nav .nav-icons {
         gap: 10px;
+    }
+}
+
+@media(max-width: 400px) {
+    .header-nav .notifications {
+        inset: 8px 0 auto auto !important;
+        min-width: 320px;
     }
 }
 

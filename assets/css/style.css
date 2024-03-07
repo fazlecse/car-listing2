@@ -81,6 +81,7 @@ Typography
   --bg-color1: #ffffff;
   --bg-color2: #050B20;
   --bg-color3: #F9FBFC;
+  --bg-color4: #1E2437;
   --border-color1: rgba(231, 234, 243, .7);
   --border-color2: rgba(140, 152, 164, .25);
   --border-color3: rgba(255, 255, 255, .06);
@@ -1404,6 +1405,51 @@ Offcanvas section start
 ----------------------------------------------*/
 .offcanvas {
   background: var(--black);
+  color: hsl(var(--white));
+}
+.offcanvas .cmn-btn-close {
+  background-color: transparent;
+  color: hsl(var(--white));
+}
+.offcanvas .widget-title h6 {
+  color: hsl(var(--white));
+}
+.offcanvas .nice-select {
+  background-color: var(--bg-color4);
+  color: hsl(var(--white));
+  border-color: var(--border-color3);
+}
+.offcanvas .nice-select option {
+  background-color: var(--bg-color4);
+}
+.offcanvas .form-control,
+.offcanvas .form-select {
+  background-color: var(--bg-color4);
+  border-color: var(--border-color3);
+  color: hsl(var(--white));
+}
+.offcanvas .form-control::-moz-placeholder, .offcanvas .form-select::-moz-placeholder {
+  color: hsl(var(--white));
+}
+.offcanvas .form-control::placeholder,
+.offcanvas .form-select::placeholder {
+  color: hsl(var(--white));
+}
+.offcanvas .accordion {
+  --bs-accordion-bg: var(--black);
+}
+.offcanvas .accordion-button {
+  color: hsl(var(--white));
+}
+.offcanvas .accordion-button::after {
+  background-image: url(../img/accordion/down-arrow-white.png);
+}
+.offcanvas .checkbox-categories-area .form-check .form-check-label {
+  color: hsl(var(--white));
+}
+
+.offcanvas-title {
+  color: hsl(var(--white));
 }
 
 .offcanvas.offcanvas-end {
@@ -2487,7 +2533,7 @@ user nav Profile start
 }
 @media (max-width: 767px) {
   .rtl .navbar .nav-right {
-    left: 60px;
+    left: 12px;
   }
 }
 
@@ -3449,7 +3495,8 @@ Padding bottom
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-color1);
+  background-color: transparent;
+  color: hsl(var(--white));
 }
 .navbar .navbar-toggler:hover {
   background-color: var(--primary-color-opacity-low);
@@ -3970,6 +4017,23 @@ Feature section end
     height: 450px;
   }
 }
+.rtl .about-section .thumbs-area .about-image {
+  padding-left: 80px;
+  padding-right: 0;
+}
+.rtl .experience {
+  right: auto;
+  left: 0;
+}
+@media (max-width: 767px) {
+  .rtl .about-section .thumbs-area .about-image {
+    padding-left: 0;
+  }
+  .rtl .experience {
+    left: 30px;
+  }
+}
+
 /*----------------------------------------------
 About section end
 ----------------------------------------------*/
@@ -5443,10 +5507,6 @@ Error end
   padding: 0;
   padding-bottom: 15px;
 }
-.products-section .map-section {
-  position: sticky;
-  top: 80px;
-}
 .products-section .map-section iframe {
   height: calc(100vh - 80px);
   border: 1px solid var(--border-color1);
@@ -5459,8 +5519,6 @@ Error end
   box-shadow: var(--shadow1);
   border-radius: 5px;
   border: 1px solid var(--border-color1);
-  position: sticky;
-  top: 80px;
 }
 .sidebar .accordion-item {
   margin: 0;
@@ -5502,6 +5560,16 @@ Error end
   border: 1px solid var(--border-color1);
 }
 
+@media (min-width: 1200px) {
+  .sidebar {
+    position: sticky;
+    top: 80px;
+  }
+  .products-section .map-section {
+    position: sticky;
+    top: 80px;
+  }
+}
 .rtl .sidebar .widget-title::before {
   left: auto;
   right: 0;
